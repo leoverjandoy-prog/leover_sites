@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0b14">
+<title>DOY SITES — Messages that feel personal</title>
+<style>
+:root{--bg:#090912;--panel:#141421;--panel2:#1b1b2b;--text:#f7f5ff;--muted:#a5a3bb;--accent:#a78bfa;--cyan:#67e8f9;--line:#2b2a40;--danger:#fb7185}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#29204b 0,transparent 38%),radial-gradient(ellipse at 100% 30%,#102f40 0,transparent 32%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}button:disabled{opacity:.45;cursor:not-allowed}
+.wrap{width:min(920px,100%);margin:auto;padding:24px 16px 60px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.08em}.brand-mark{width:42px;height:42px;display:grid;place-items:center;background:linear-gradient(135deg,#a78bfa,#67e8f9);border-radius:13px;color:#10101a;font-size:22px;box-shadow:0 0 35px #a78bfa33}.tag{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:7px 10px;border-radius:999px}
+.hero{text-align:center;padding:30px 0 28px}.monkey{width:116px;height:116px;margin:0 auto 18px;border:1px solid #ffffff20;border-radius:28px;background:linear-gradient(145deg,#29203f,#111827);display:grid;place-items:center;box-shadow:0 15px 60px #8b5cf633;animation:float 3s ease-in-out infinite;position:relative;overflow:hidden}.monkey:after{content:"";position:absolute;inset:-70%;background:linear-gradient(110deg,transparent 40%,#ffffff12 50%,transparent 60%);animation:shine 4s linear infinite}.pixel{font-size:66px;filter:drop-shadow(4px 4px 0 #0008);image-rendering:pixelated;animation:pop 1.3s steps(4) both}.eyebrow{color:var(--cyan);font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}.hero h1{font-size:clamp(32px,7vw,58px);line-height:1.02;letter-spacing:-.055em;margin:12px 0}.gradient{background:linear-gradient(90deg,#c4b5fd,#67e8f9);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--muted);max-width:540px;margin:0 auto;line-height:1.7}
+.panel{background:#11111ddf;border:1px solid #ffffff14;border-radius:24px;padding:clamp(18px,4vw,30px);box-shadow:0 20px 70px #0004;backdrop-filter:blur(18px);margin-top:18px}.panel h2{font-size:21px;margin:0 0 6px;letter-spacing:-.025em}.sub{color:var(--muted);font-size:13px;line-height:1.6;margin:0 0 22px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:flex;flex-direction:column;gap:8px;margin-bottom:15px}.field label{font-size:13px;font-weight:700;color:#e5e2f6}.field input,.field textarea,.field select{width:100%;background:#0b0b15;border:1px solid var(--line);color:var(--text);border-radius:13px;padding:13px 14px;outline:none;transition:.2s}.field textarea{resize:vertical;min-height:130px;line-height:1.6}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px #a78bfa20}.hint{font-size:11px;color:var(--muted);line-height:1.5}.btn{padding:12px 16px;border-radius:13px;font-weight:800;transition:transform .2s,filter .2s}.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}.primary{background:linear-gradient(100deg,#a78bfa,#67e8f9);color:#10101a}.secondary{background:#222236;border:1px solid var(--line);color:var(--text)}.danger{background:#3b1725;color:#fecdd3;border:1px solid #7f1d3b}.rowbtn{display:flex;gap:9px;flex-wrap:wrap}.emoji-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.emoji{background:#25243a;border:1px solid #34324d;border-radius:10px;padding:7px 9px;font-size:20px}.preview{max-width:100%;max-height:260px;border-radius:16px;margin-top:12px;display:none;border:1px solid var(--line)}.camera{display:none;width:100%;max-width:360px;border-radius:16px;margin-top:12px;background:#000}.status{padding:12px 14px;border:1px solid var(--line);background:#0d0d18;border-radius:13px;color:var(--muted);font-size:13px;line-height:1.55;overflow-wrap:anywhere}.status.good{border-color:#14532d;color:#bbf7d0}.status.warn{border-color:#854d0e;color:#fde68a}.status.bad{border-color:#7f1d1d;color:#fecaca}.hidden{display:none!important}.lockbox{max-width:500px;margin:20px auto}.message-card{max-width:620px;margin:20px auto;background:#141421;border:1px solid #ffffff18;border-radius:24px;padding:24px}.bubble{white-space:pre-wrap;overflow-wrap:anywhere;background:#25243a;border-radius:18px 18px 18px 5px;padding:16px;line-height:1.7;margin:18px 0}.senderline{display:flex;align-items:center;gap:12px}.avatar{width:48px;height:48px;border-radius:50%;object-fit:cover;background:#29203f;border:1px solid #ffffff22;display:grid;place-items:center;font-size:22px}.message-media{max-width:100%;max-height:380px;border-radius:16px;margin-top:10px}.foot{color:#77758e;font-size:11px;text-align:center;line-height:1.6;margin-top:28px}.recording{color:#fda4af;font-weight:800}.badge{font-size:11px;padding:5px 8px;background:#25243a;border-radius:999px;color:#c4b5fd}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}@keyframes shine{0%{transform:translateX(-45%) rotate(20deg)}100%{transform:translateX(45%) rotate(20deg)}}@keyframes pop{0%{transform:scale(.3);opacity:0;filter:blur(5px)}60%{transform:scale(1.12);opacity:1;filter:blur(0)}100%{transform:scale(1)}}
+
+/* DOY SITES cinematic pixel intro */
+body.intro-lock{overflow:hidden}
+.intro-screen{position:fixed;inset:0;z-index:50;display:grid;place-items:center;overflow:auto;padding:24px 14px;background:radial-gradient(ellipse at 50% 25%,#35225d 0,transparent 38%),radial-gradient(ellipse at 12% 85%,#113947 0,transparent 35%),#080811;transition:opacity .75s ease,transform .75s ease}
+.intro-screen.leaving{opacity:0;transform:scale(1.035);pointer-events:none}
+.intro-stars{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(#c4b5fd 1px,transparent 1.5px),radial-gradient(#67e8f9 1px,transparent 1.5px);background-size:79px 79px,113px 113px;background-position:0 0,38px 53px;opacity:.18;animation:stars-drift 24s linear infinite}
+.intro-content{width:min(590px,100%);position:relative;text-align:center;padding:22px 0 18px;animation:intro-rise .9s cubic-bezier(.2,.8,.2,1) both}
+.pixel-stage{height:220px;position:relative;display:grid;place-items:center;margin:0 auto 5px;isolation:isolate}
+.pixel-ground{position:absolute;width:170px;height:25px;bottom:20px;border-radius:50%;background:#a78bfa20;filter:blur(7px);animation:ground-pulse 2.5s ease-in-out infinite}
+.pixel-monkey{position:relative;width:112px;height:142px;image-rendering:pixelated;transform-origin:50% 90%;animation:monkey-idle 2.3s steps(2,end) infinite;filter:drop-shadow(0 12px 20px #0008)}
+.pixel-monkey span{position:absolute;display:block;image-rendering:pixelated}
+.monkey-head{left:20px;top:18px;width:72px;height:61px;background:#a96a3e;box-shadow:0 -7px #7b432c,0 7px #7b432c,7px 0 #7b432c,-7px 0 #7b432c}
+.monkey-ear{top:21px;width:25px;height:25px;background:#7b432c;border:5px solid #b7794b;z-index:-1}
+.monkey-ear.left{left:7px}.monkey-ear.right{right:7px}
+.monkey-face{left:31px;top:38px;width:51px;height:36px;background:#f0c28a;box-shadow:0 7px #d99b68,-5px 0 #d99b68,5px 0 #d99b68}
+.monkey-eye{top:39px;width:7px;height:9px;background:#201520;z-index:2;animation:blink 4.2s steps(1) infinite}
+.monkey-eye.left{left:39px}.monkey-eye.right{right:39px}
+.monkey-muzzle{left:43px;top:53px;width:28px;height:14px;background:#ffe0a9;box-shadow:0 -4px #d99b68,0 4px #d99b68}
+.monkey-mouth{left:52px;top:60px;width:11px;height:4px;background:#4b2430;z-index:3}
+.monkey-body{left:30px;top:79px;width:54px;height:42px;background:#7b432c;box-shadow:0 7px #542b2b,7px 0 #542b2b,-7px 0 #542b2b}
+.monkey-arm{top:84px;width:18px;height:34px;background:#a96a3e;box-shadow:0 5px #7b432c}
+.monkey-arm.left{left:13px;transform:rotate(12deg);animation:wave 1.4s ease-in-out infinite}
+.monkey-arm.right{right:11px;transform:rotate(-8deg)}
+.monkey-leg{top:116px;width:22px;height:15px;background:#51302c;box-shadow:0 5px #2a1b28}
+.monkey-leg.left{left:30px}.monkey-leg.right{right:25px}
+.monkey-tail{left:75px;top:92px;width:26px;height:27px;border:7px solid #a96a3e;border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;transform:rotate(35deg);z-index:-1}
+.pixel-spark{position:absolute;color:#b8f6ff;font-size:22px;text-shadow:0 0 16px #67e8f9;animation:sparkle 2s ease-in-out infinite}
+.spark-one{left:calc(50% - 110px);top:48px}.spark-two{right:calc(50% - 115px);top:84px;animation-delay:.6s}.spark-three{left:calc(50% + 70px);top:25px;animation-delay:1s}
+.intro-kicker{font-size:11px;text-transform:uppercase;letter-spacing:.24em;color:var(--cyan);font-weight:900;margin-top:2px}
+.intro-title{font-size:clamp(34px,8vw,62px);line-height:1.02;letter-spacing:-.06em;margin:14px 0 12px;font-weight:950}
+.intro-copy{max-width:400px;margin:0 auto;color:#b6b2cc;font-size:14px;line-height:1.7}
+.loading-wrap{width:min(330px,85%);margin:27px auto 18px;text-align:left}
+.loading-label{display:flex;justify-content:space-between;gap:10px;font-size:11px;color:#b8b5d0;margin-bottom:9px}
+.loading-track{height:7px;border-radius:99px;background:#ffffff12;border:1px solid #ffffff10;overflow:hidden}
+.loading-bar{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#a78bfa,#67e8f9);box-shadow:0 0 18px #67e8f977;transition:width .16s linear}
+.enter-btn{min-width:min(300px,90%);min-height:49px;box-shadow:0 8px 35px #a78bfa24}
+.intro-foot{margin-top:24px;font-size:9px;letter-spacing:.2em;color:#6e6a89}.intro-foot span{color:#67e8f9;padding:0 5px}
+@keyframes intro-rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes monkey-idle{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-7px) rotate(2deg)}}
+@keyframes wave{0%,100%{transform:rotate(12deg)}50%{transform:rotate(-24deg) translateY(-3px)}}
+@keyframes blink{0%,45%,48%,100%{transform:scaleY(1)}46%,47%{transform:scaleY(.12)}}
+@keyframes sparkle{0%,100%{opacity:.25;transform:scale(.7) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(20deg)}}
+@keyframes ground-pulse{0%,100%{transform:scaleX(.85);opacity:.5}50%{transform:scaleX(1.1);opacity:1}}
+@keyframes stars-drift{from{background-position:0 0,38px 53px}to{background-position:158px 158px,-188px 279px}}
+
+@media(max-width:620px){.grid{grid-template-columns:1fr}.top{align-items:flex-start}.tag{max-width:140px;text-align:center}.hero{padding-top:18px}.panel{border-radius:20px}.wrap{padding-left:13px;padding-right:13px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><div class="brand-mark">🐒</div><span>DOY SITES</span></div><div class="tag">PERSONAL • PLAYFUL • PIXEL</div></header>
+<section id="introScreen" class="intro-screen">
+  <div class="intro-stars" aria-hidden="true"></div>
+  <div class="intro-content">
+    <div class="pixel-stage" aria-label="Animated pixel monkey">
+      <div class="pixel-ground"></div>
+      <div class="pixel-monkey" aria-hidden="true">
+        <span class="monkey-ear left"></span><span class="monkey-ear right"></span>
+        <span class="monkey-head"></span><span class="monkey-face"></span>
+        <span class="monkey-eye left"></span><span class="monkey-eye right"></span>
+        <span class="monkey-muzzle"></span><span class="monkey-mouth"></span>
+        <span class="monkey-body"></span><span class="monkey-arm left"></span><span class="monkey-arm right"></span>
+        <span class="monkey-leg left"></span><span class="monkey-leg right"></span>
+        <span class="monkey-tail"></span>
+      </div>
+      <span class="pixel-spark spark-one">✦</span><span class="pixel-spark spark-two">✧</span><span class="pixel-spark spark-three">✦</span>
+    </div>
+    <div class="intro-kicker">A tiny world for your words</div>
+    <h1 class="intro-title">Welcome to <span class="gradient">Doy Sites</span></h1>
+    <p class="intro-copy">Private little messages. Big feelings. Your own secret link.</p>
+    <div class="loading-wrap" id="loadingWrap">
+      <div class="loading-label"><span id="loadingText">Waking up the monkey...</span><span id="loadingPercent">0%</span></div>
+      <div class="loading-track"><div id="loadingBar" class="loading-bar"></div></div>
+    </div>
+    <button id="enterSiteBtn" class="btn primary enter-btn" type="button" disabled>Loading your little world…</button>
+    <div class="intro-foot">DOY SITES <span>•</span> MADE WITH A LITTLE MAGIC</div>
+  </div>
+</section>
+
+<section class="hero hidden" id="hero">
+  <div class="monkey"><div class="pixel" aria-label="pixel monkey">🐵</div></div>
+  <div class="eyebrow">A little message, just for you</div>
+  <h1>Welcome to <span class="gradient">Doy Sites</span></h1>
+  <p>Make a message personal. Add your words, a photo, or your voice — then share a link protected by a password.</p>
+</section>
+
+<main id="createView" class="hidden">
+<section class="panel">
+<h2>✦ Create your identity</h2><p class="sub">Tell the receiver who this message is from. Your details are included only in the message you create.</p>
+<div class="grid">
+<div class="field"><label for="senderName">Your name</label><input id="senderName" maxlength="60" placeholder="Please input your name" autocomplete="name"></div>
+<div class="field"><label for="senderAge">Your age</label><input id="senderAge" type="number" min="1" max="120" placeholder="Your age"></div>
+</div>
+<div class="field"><label>Selfie / profile photo (optional)</label><div class="rowbtn"><button class="btn secondary" id="cameraBtn" type="button">📷 Take a selfie</button><button class="btn secondary" id="uploadPhotoBtn" type="button">🖼️ Upload photo</button><input id="photoFile" class="hidden" type="file" accept="image/*" capture="user"></div><video id="camera" class="camera" autoplay playsinline></video><div class="rowbtn hidden" id="cameraControls" style="margin-top:9px"><button class="btn primary" id="snapBtn" type="button">Capture photo</button><button class="btn secondary" id="stopCameraBtn" type="button">Close camera</button></div><img id="photoPreview" class="preview" alt="Photo preview"><p class="hint">Camera access works on HTTPS or localhost. Photo is embedded in the encrypted message, so keep it small.</p></div>
+</section>
+
+<section class="panel">
+<h2>💌 Write your message</h2><p class="sub">Say what you want to say. Add emojis, a picture, and even a voice recording.</p>
+<div class="field"><label for="messageText">Your message</label><textarea id="messageText" maxlength="2500" placeholder="Type your message here..."></textarea><div class="emoji-row" aria-label="Add emoji"><button class="emoji" type="button">❤️</button><button class="emoji" type="button">🥹</button><button class="emoji" type="button">😂</button><button class="emoji" type="button">✨</button><button class="emoji" type="button">🫶</button><button class="emoji" type="button">💌</button><button class="emoji" type="button">🌙</button><button class="emoji" type="button">🔥</button></div><p class="hint">Up to 2,500 characters.</p></div>
+<div class="field"><label for="attachment">Attach a photo (optional)</label><input id="attachment" type="file" accept="image/*"><img id="attachmentPreview" class="preview" alt="Attachment preview"><p class="hint">Images are automatically resized/compressed before encryption. Larger media may take longer to upload.</p></div>
+<div class="field"><label>Voice message (optional)</label><div class="rowbtn"><button id="recordBtn" class="btn secondary" type="button">🎙️ Start recording</button><button id="stopRecordBtn" class="btn danger hidden" type="button">Stop recording</button></div><audio id="audioPreview" controls class="hidden" style="width:100%;margin-top:12px"></audio><p id="recordStatus" class="hint">Recording requires microphone permission and a supported browser.</p></div>
+</section>
+
+<section class="panel">
+<h2>🔐 Lock your message</h2><p class="sub">Choose a password to give only to the person receiving the link. The message is encrypted in your browser before the link is created.</p>
+<div class="grid">
+<div class="field"><label for="password">Message password</label><input id="password" type="password" minlength="6" maxlength="100" placeholder="At least 6 characters" autocomplete="new-password"></div>
+<div class="field"><label for="expiry">Link expiration</label><select id="expiry"><option value="1">1 hour</option><option value="24" selected>24 hours</option><option value="72">3 days</option><option value="168">7 days</option><option value="720">30 days</option></select></div>
+</div>
+<div class="status warn">Privacy note: no database means this app cannot revoke a copied link or guarantee deletion from every copy. The expiration is checked when the page opens; a receiver could save content before then. Never use this for sensitive or confidential information.</div>
+<div style="margin-top:18px" class="rowbtn"><button id="createBtn" class="btn primary" type="button">Create my secret link ↗</button><button id="resetBtn" class="btn secondary" type="button">Clear form</button></div>
+<div id="result" class="hidden" style="margin-top:18px"><div class="status good" id="resultStatus"></div><div class="field" style="margin-top:12px"><label for="shareLink">Your encrypted message link</label><input id="shareLink" readonly><div class="rowbtn"><button class="btn primary" id="copyBtn" type="button">Copy link</button><button class="btn secondary" id="openBtn" type="button">Preview link</button></div></div><p class="hint">Send the link to your recipient, then share the password separately. If the link is too long for an app to accept, remove the media and try again.</p></div>
+</section>
+</main>
+
+<main id="unlockView" class="hidden">
+<section class="panel lockbox" id="unlockPanel"><div style="font-size:34px;margin-bottom:10px">🔒</div><h2>A message is waiting for you</h2><p class="sub">This message is password-protected. Ask the sender for the password.</p><div class="field"><label for="unlockPassword">Enter message password</label><input id="unlockPassword" type="password" placeholder="Enter password" autocomplete="off"></div><button id="unlockBtn" class="btn primary" style="width:100%" type="button">Unlock message</button><div id="unlockError" class="status bad hidden" style="margin-top:12px"></div></section>
+<section id="openedMessage" class="message-card hidden"></section>
+</main>
+<footer class="foot">DOY SITES · Made for fun and meaningful messages<br>Client-side encrypted messages • Supabase storage • Share the password separately</footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/*
+ * DOY SITES — Supabase configuration
+ * Replace both placeholders with your project's URL and public anon/publishable key.
+ * Never put a service_role/secret key in this file.
+ */
+const SUPABASE_URL = "https://lrakomjjxmreilhcmitw.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_7UT-ye3nQ58STzFrgZdhEA_uAlvH0hI";
+let supabaseClient = null;
+
+function getSupabaseClient(){
+  if(SUPABASE_URL.startsWith("YOUR_") || SUPABASE_ANON_KEY.startsWith("YOUR_")){
+    throw new Error("Supabase is not configured yet. Add your Project URL and public anon/publishable key in the setup section of this HTML file.");
+  }
+  if(!window.supabase?.createClient){
+    throw new Error("Supabase's client library did not load. Check your internet connection and reload the page.");
+  }
+  if(!supabaseClient) supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  return supabaseClient;
+}
+
+const $ = id => document.getElementById(id);
+document.body.classList.add('intro-lock');
+(function runIntro(){
+ const bar=$('loadingBar'),pct=$('loadingPercent'),label=$('loadingText'),enter=$('enterSiteBtn');
+ const labels=[{at:0,text:'Waking up the monkey...'},{at:28,text:'Building the pixel world...'},{at:57,text:'Polishing the message bubbles...'},{at:82,text:'Almost ready...'},{at:100,text:'Your little world is ready.'}];
+ let progress=0,ready=false;
+ const tick=()=>{if(progress<100){progress=Math.min(100,progress+(progress<55?2.2:progress<85?1.5:1.2));bar.style.width=progress+'%';pct.textContent=Math.floor(progress)+'%';const current=[...labels].reverse().find(x=>progress>=x.at);if(current)label.textContent=current.text;if(progress>=100){ready=true;enter.disabled=false;enter.textContent='✦ Click to open the site';enter.classList.add('ready');}else setTimeout(tick,42)}};
+ setTimeout(tick,350);
+ enter.addEventListener('click',()=>{if(!ready)return;const splash=$('introScreen');splash.classList.add('leaving');setTimeout(()=>{splash.classList.add('hidden');document.body.classList.remove('intro-lock');if(location.hash){show($('unlockView'));}else{show($('hero'));show($('createView'));}window.scrollTo({top:0,behavior:'instant'});},700)});
+})();
+
+let profilePhoto = "", attachedPhoto = "", voiceData = "", cameraStream = null, recorder = null, chunks = [], currentLink = "";
+function show(el){el.classList.remove('hidden')} function hide(el){el.classList.add('hidden')}
+function fileToDataURL(file,maxSide=1000,quality=.76){return new Promise((resolve,reject)=>{if(!file)return resolve("");if(!file.type.startsWith('image/'))return reject(new Error('Please choose an image file.'));const reader=new FileReader();reader.onerror=()=>reject(new Error('Could not read file.'));reader.onload=()=>{const img=new Image();img.onerror=()=>resolve(reader.result);img.onload=()=>{const scale=Math.min(1,maxSide/Math.max(img.width,img.height));const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(img.width*scale));canvas.height=Math.max(1,Math.round(img.height*scale));canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);resolve(canvas.toDataURL('image/jpeg',quality));};img.src=reader.result;};reader.readAsDataURL(file);});}
+$('uploadPhotoBtn').onclick=()=>$('photoFile').click();
+$('photoFile').onchange=async e=>{try{profilePhoto=await fileToDataURL(e.target.files[0],360,.48);$('photoPreview').src=profilePhoto;show($('photoPreview'));}catch(err){alert(err.message)}};
+$('cameraBtn').onclick=async()=>{try{cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'},audio:false});$('camera').srcObject=cameraStream;show($('camera'));show($('cameraControls'));}catch(e){alert('Camera could not start. Please allow camera access and use HTTPS or localhost. You can upload a photo instead.')}};
+function stopCamera(){if(cameraStream)cameraStream.getTracks().forEach(t=>t.stop());cameraStream=null;hide($('camera'));hide($('cameraControls'))}
+$('stopCameraBtn').onclick=stopCamera;
+$('snapBtn').onclick=()=>{const v=$('camera');const c=document.createElement('canvas');c.width=v.videoWidth;c.height=v.videoHeight;c.getContext('2d').drawImage(v,0,0);profilePhoto=c.toDataURL('image/jpeg',.50);$('photoPreview').src=profilePhoto;show($('photoPreview'));stopCamera()};
+$('attachment').onchange=async e=>{try{attachedPhoto=await fileToDataURL(e.target.files[0],480,.50);$('attachmentPreview').src=attachedPhoto;show($('attachmentPreview'));}catch(err){alert(err.message)}};
+document.querySelectorAll('.emoji').forEach(b=>b.onclick=()=>{const t=$('messageText'),start=t.selectionStart,end=t.selectionEnd; t.value=t.value.slice(0,start)+b.textContent+t.value.slice(end);t.focus();t.selectionStart=t.selectionEnd=start+b.textContent.length});
+$('recordBtn').onclick=async()=>{try{const stream=await navigator.mediaDevices.getUserMedia({audio:true});chunks=[];recorder=new MediaRecorder(stream);recorder.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};recorder.onstop=()=>{const blob=new Blob(chunks,{type:recorder.mimeType||'audio/webm'});if(blob.size>900000){alert('Voice recording is too large for a practical share link. Please record a shorter message (under about 10 seconds).');voiceData='';}else{const r=new FileReader();r.onload=()=>{voiceData=r.result;$('audioPreview').src=voiceData;show($('audioPreview'));$('recordStatus').textContent='Voice message ready.'};r.readAsDataURL(blob)};stream.getTracks().forEach(t=>t.stop());hide($('stopRecordBtn'));show($('recordBtn'));$('recordStatus').classList.remove('recording')};recorder.start();hide($('recordBtn'));show($('stopRecordBtn'));$('recordStatus').textContent='Recording… press Stop recording when finished.';$('recordStatus').classList.add('recording')}catch(e){alert('Microphone could not start. Allow microphone access and use HTTPS or localhost.')}};
+$('stopRecordBtn').onclick=()=>{if(recorder&&recorder.state!=='inactive')recorder.stop()};
+function bytesToB64(bytes){let s='';for(let i=0;i<bytes.length;i++)s+=String.fromCharCode(bytes[i]);return btoa(s)}
+function b64ToBytes(s){const bin=atob(s),out=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)out[i]=bin.charCodeAt(i);return out}
+async function deriveKey(password,salt){const enc=new TextEncoder();const material=await crypto.subtle.importKey('raw',enc.encode(password),'PBKDF2',false,['deriveKey']);return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:180000,hash:'SHA-256'},material,{name:'AES-GCM',length:256},false,['encrypt','decrypt'])}
+async function gzipBytes(input){
+ if(!('CompressionStream' in window)) return input;
+ const stream=new Blob([input]).stream().pipeThrough(new CompressionStream('gzip'));
+ return new Uint8Array(await new Response(stream).arrayBuffer());
+}
+async function gunzipBytes(input){
+ if(!('DecompressionStream' in window)) return input;
+ const stream=new Blob([input]).stream().pipeThrough(new DecompressionStream('gzip'));
+ return new Uint8Array(await new Response(stream).arrayBuffer());
+}
+async function encryptPayload(payload,password){if(!crypto.subtle)throw new Error('Secure encryption is not available here. Open this page on HTTPS or localhost.');const salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12)),key=await deriveKey(password,salt);const raw=new TextEncoder().encode(JSON.stringify(payload));const data=await gzipBytes(raw);const cipher=await crypto.subtle.encrypt({name:'AES-GCM',iv},key,data);return {v:2,z:('CompressionStream' in window),s:bytesToB64(salt),i:bytesToB64(iv),c:bytesToB64(new Uint8Array(cipher))}}
+async function decryptPayload(box,password){const key=await deriveKey(password,b64ToBytes(box.s));const plain= new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64ToBytes(box.i)},key,b64ToBytes(box.c)));const data=(box.v===2&&box.z)?await gunzipBytes(plain):plain;return JSON.parse(new TextDecoder().decode(data))}
+function estimateBytes(s){return new Blob([s]).size}
+$('createBtn').onclick=async()=>{
+ const name=$('senderName').value.trim(),age=Number($('senderAge').value),message=$('messageText').value.trim(),password=$('password').value;
+ if(!name)return alert('Please input your name.');
+ if(!Number.isInteger(age)||age<1||age>120)return alert('Please enter a valid age.');
+ if(!message&&!attachedPhoto&&!voiceData)return alert('Add a message, photo, or voice recording first.');
+ if(password.length<6)return alert('Choose a password with at least 6 characters.');
+ const btn=$('createBtn');btn.disabled=true;btn.textContent='Encrypting message…';
+ try{
+   const now=Date.now();
+   const expiresAt=now+Number($('expiry').value)*3600000;
+   const payload={name,age,message,profilePhoto,attachedPhoto,voiceData,createdAt:now,expiresAt};
+   // Only the encrypted box is sent to Supabase; the password and plaintext stay in this browser.
+   const encryptedPayload=await encryptPayload(payload,password);
+   btn.textContent='Saving encrypted message…';
+   const client=getSupabaseClient();
+   const {data,error}=await client.from('messages')
+     .insert({encrypted_payload:encryptedPayload,expires_at:new Date(expiresAt).toISOString()})
+     .select('id').single();
+   if(error)throw new Error('Could not save the message to Supabase: '+error.message);
+   if(!data?.id)throw new Error('Supabase did not return a message ID.');
+   // Use the actual hosted website URL, not the local content:// URL.
+const siteUrl = new URL('./', window.location.href);
+siteUrl.hash = 'id=' + encodeURIComponent(data.id);
+currentLink = siteUrl.toString();
+   $('resultStatus').className='status good';
+   $('resultStatus').textContent='Your message is encrypted and saved. Share the short link, and send the password separately.';
+   $('shareLink').value=currentLink;
+   show($('result'));
+   $('result').scrollIntoView({behavior:'smooth',block:'center'});
+ }catch(e){
+   alert(e.message||'Could not create the link. Check your Supabase setup and try again.');
+ }finally{
+   btn.disabled=false;btn.textContent='Create my secret link ↗';
+ }};
+$('copyBtn').onclick=async()=>{try{await navigator.clipboard.writeText(currentLink);$('copyBtn').textContent='Copied ✓';setTimeout(()=>$('copyBtn').textContent='Copy link',1800)}catch(e){$('shareLink').select();document.execCommand('copy');$('copyBtn').textContent='Copied ✓'}};
+$('openBtn').onclick=()=>window.open(currentLink,'_blank');
+$('resetBtn').onclick=()=>{if(!confirm('Clear all fields and media?'))return;$('senderName').value='';$('senderAge').value='';$('messageText').value='';$('password').value='';$('photoFile').value='';$('attachment').value='';profilePhoto='';attachedPhoto='';voiceData='';hide($('photoPreview'));hide($('attachmentPreview'));hide($('audioPreview'));hide($('result'));$('recordStatus').textContent='Recording requires microphone permission and a supported browser.'};
+function decodeHash(){
+ try{
+   const raw=location.hash.slice(1);
+   if(raw.startsWith('id=')){
+     const id=decodeURIComponent(raw.slice(3));
+     // Supabase uses UUID IDs; reject malformed IDs before querying.
+     if(!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(id))return null;
+     return {type:'remote',id};
+   }
+   // Keep previously created browser-only links working.
+   if(raw.startsWith('m=')){
+     let encoded=raw.slice(2).replace(/-/g,'+').replace(/_/g,'/');
+     while(encoded.length%4)encoded+='=';
+     const legacyBox=JSON.parse(decodeURIComponent(escape(atob(encoded))));
+     if(!legacyBox?.c||!legacyBox?.s||!legacyBox?.i)return null;
+     return {type:'legacy',box:legacyBox};
+   }
+   return null;
+ }catch(e){return null}
+}
+function renderOpened(p){
+ hide($('unlockPanel'));const box=$('openedMessage');box.innerHTML='';
+ const head=document.createElement('div');head.className='senderline';
+ const avatar=document.createElement('img');avatar.className='avatar';avatar.alt='Sender profile';
+ if(p.profilePhoto)avatar.src=p.profilePhoto;else{avatar.src='';avatar.style.display='none'}
+ head.appendChild(avatar);const who=document.createElement('div');
+ const nm=document.createElement('div');nm.style.fontWeight='900';nm.textContent=p.name;
+ const age=document.createElement('div');age.className='hint';age.textContent='Age '+p.age+' · Sent with DOY SITES';
+ who.append(nm,age);head.appendChild(who);box.appendChild(head);
+ const title=document.createElement('h2');title.textContent='💌 A message for you';title.style.marginTop='22px';box.appendChild(title);
+ if(p.message){const b=document.createElement('div');b.className='bubble';b.textContent=p.message;box.appendChild(b)}
+ if(p.attachedPhoto){const im=document.createElement('img');im.className='message-media';im.src=p.attachedPhoto;im.alt='Attached photo';box.appendChild(im)}
+ if(p.voiceData){const au=document.createElement('audio');au.controls=true;au.src=p.voiceData;au.style.width='100%';au.style.marginTop='16px';box.appendChild(au)}
+ const expiry=document.createElement('p');expiry.className='hint';expiry.style.marginTop='20px';expiry.textContent='This link expires '+new Date(p.expiresAt).toLocaleString()+'. Keep in mind: the recipient may save a copy.';box.appendChild(expiry);
+ show(box);box.scrollIntoView({behavior:'smooth',block:'start'})
+}
+const messageReference=decodeHash();
+if(location.hash){
+ hide($('hero'));hide($('createView'));show($('unlockView'));
+ if(!messageReference){
+   $('unlockError').textContent='This link is invalid or damaged.';show($('unlockError'));$('unlockBtn').disabled=true;
+ }
+}
+$('unlockBtn').onclick=async()=>{
+ const pw=$('unlockPassword').value;if(!pw)return;
+ const btn=$('unlockBtn');btn.disabled=true;btn.textContent='Unlocking…';hide($('unlockError'));
+ try{
+   if(!messageReference)throw new Error('This link is invalid or damaged.');
+   let payload;
+   if(messageReference.type==='legacy'){
+     payload=await decryptPayload(messageReference.box,pw);
+   }else{
+     const client=getSupabaseClient();
+     // RLS also blocks SELECT on expired rows; this filter is an extra server-side check.
+     const {data,error}=await client.from('messages')
+       .select('encrypted_payload,expires_at')
+       .eq('id',messageReference.id)
+       .gt('expires_at',new Date().toISOString())
+       .maybeSingle();
+     if(error)throw new Error('Could not retrieve the message from Supabase: '+error.message);
+     if(!data)throw new Error('This message is unavailable or has expired. Ask the sender to create a new link.');
+     if(Date.parse(data.expires_at)<=Date.now())throw new Error('This message is unavailable or has expired. Ask the sender to create a new link.');
+     payload=await decryptPayload(data.encrypted_payload,pw);
+     // Check the encrypted expiry too, in case stored metadata and payload do not match.
+     if(!Number.isFinite(Number(payload.expiresAt))||Number(payload.expiresAt)<=Date.now()){
+       throw new Error('This message is unavailable or has expired. Ask the sender to create a new link.');
+     }
+   }
+   if(!Number.isFinite(Number(payload.expiresAt))||Date.now()>Number(payload.expiresAt)){
+     throw new Error('This message has expired. Ask the sender to create a new link.');
+   }
+   renderOpened(payload);
+ }catch(e){
+   const msg=e.message||'Wrong password, or this message link is damaged.';
+   $('unlockError').textContent=(msg.includes('expired')||msg.includes('unavailable')||msg.includes('Supabase')||msg.includes('configured')||msg.includes('client library'))?msg:'Wrong password, or this message link is damaged.';
+   show($('unlockError'));
+ }finally{btn.disabled=false;btn.textContent='Unlock message'}
+};
+$('unlockPassword').addEventListener('keydown',e=>{if(e.key==='Enter')$('unlockBtn').click()});
+</script>
+</body>
+</html>
